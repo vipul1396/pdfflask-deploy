@@ -1,5 +1,6 @@
 from flask import Flask,render_template,url_for
 import os
+path1 = os.getcwd + "//templates"
 app = Flask(__name__,static_url_path="",static_folder="",template_folder="/home/vipul/Documents/pdfflask-deploy/templates")
 global directory
 path = os.getcwd() + "//ram"
