@@ -12,4 +12,4 @@ for var in directory:
 def home():
     return render_template('test.html', li=li,value=len(li))
 if(__name__=="__main__"):
-    app.run(host='0.0.0.0',port=$PORT)
+    app.run()
