@@ -6,7 +6,7 @@ path = '/ram'
 directory = os.listdir(path)
 s="ram/"
 li=[]
-for var in directory:
+for var in ram:
     li.append(s+var)
 @app.route("/")
 def home():
