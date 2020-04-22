@@ -37,6 +37,8 @@
     width:100%;
     }
     </style>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript">
     var s=0;
     var height=window.innerHeight;
@@ -76,25 +78,31 @@
         document.getElementById("bt2").style.display="none";
     }
     }
+
+    $(document).on("pagecreate","#pageone",function(){
+    $("body").on("swipeleft",function(){
+    return back();
+     });
+     });
+
+
+    $(document).on("pagecreate","#pageone",function(){
+    $("body").on("swiperight",function(){
+        return next();
+     });
+     });
     </script>
 </head>
-<body onload="begin()">
-    <table>
-        <tr>
-            <td><input type="button" value="Next" id="bt1" onclick="next()"></td>
-            <td><input type="button" value="back" id="bt2" onclick="back()"></td>
-        </tr></table>
+<body onload="begin()" id="pageone">
+    <div>
+            <input value="" id="bt1" onclick="next()">
+            <input value="" id="bt2" onclick="back()">
+    </div>
     {% for var in range(value) %}
         <div id="d{{var}}" style="display:none">
             <embed src="{{url_for('static',filename=li[var])}}" type="application/pdf"></embed>
         </div>
     {% endfor %}
-<!---{% for var in li %}
-<h2>
-    {{var}}
-    <embed src="{{url_for('static',filename=var)}}">
-    </embed>
-</h2>
-{% endfor %}-->
+
 </body>
 </html>
